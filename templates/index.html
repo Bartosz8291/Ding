@@ -77,15 +77,23 @@ function triggerBell() {
   setTimeout(() => bell.classList.remove('shake'), 500);
 }
 
-// Click the bell normally
+// Click bell normally
 bell.addEventListener('click', triggerBell);
 
-// Easter egg: trigger bell when user searches "Ding"
+// Easter egg: store "ding" search in localStorage
 const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
   const query = e.target.query.value.trim().toLowerCase();
   if (query === "ding") {
+    localStorage.setItem("dingEasterEgg", "true");
+  }
+});
+
+// Check on page load if Easter egg should trigger
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem("dingEasterEgg") === "true") {
     triggerBell();
+    localStorage.removeItem("dingEasterEgg"); // reset after triggering
   }
 });
 </script>

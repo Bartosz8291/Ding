@@ -1,0 +1,104 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 img {
+    vertical-align: middle;  /* aligns the icon with text */
+    width: 24px;              /* makes it slightly bigger than 16px */
+    height: 24px;
+    margin-left: 5px;         /* small gap from the text */
+}
+
+form input[type="text"], form textarea {
+    width: 60%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+form textarea {
+    height: 80px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-left: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffcc00;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #ffdd33;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Add Page Button */
+.add-page-btn {
+    background-color: #00cc66;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.add-page-btn:hover {
+    background-color: #33dd88;
+}
+
+/* Add Page Form */
+#addForm {
+    display: none;
+    margin-top: 15px;
+}
+
+#addForm input, #addForm textarea {
+    margin-top: 5px;
+}
+
+/* This code is Copyrighted. Copyright (c) 2025 Ding */

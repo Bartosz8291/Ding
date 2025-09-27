@@ -1,0 +1,32 @@
+[
+    {
+        "url": "https://youtube.com",
+        "title": "YouTube",
+        "content": "Start watching videos to help us build a feed of videos you'll love."
+    },
+    {
+        "title": "Google",
+        "url": "https://google.com",
+        "content": "Google"
+    },
+    {
+        "title": "Steam",
+        "url": "https://store.steampowered.com/",
+        "content": "Steam"
+    },
+    {
+        "title": "Reddit",
+        "url": "https://reddit.com",
+        "content": "Reddit"
+    },
+    {
+        "title": "GitHub",
+        "url": "https://github.com",
+        "content": "GitHub"
+    },
+    {
+        "title": "BARTEKK23MC",
+        "url": "https://bartekk23mc.vercel.app/",
+        "content": "BARTEKK23MC"
+    }
+]

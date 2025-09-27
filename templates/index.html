@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ding 🔔</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='ding.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='ding.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='ding.png') }}" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Ding <img src="{{ url_for('static', filename='ding.png') }}" alt="Ding Icon" sizes="16x16"></h1>
+
+        <!-- Search Form -->
+        <form method="POST">
+            <input type="text" name="query" placeholder="Search Ding..." required>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Results -->
+        {% if results %}
+            <h2>Results:</h2>
+            <ul>
+                {% for r in results %}
+                    <li><a href="{{ r.url }}" target="_blank">{{ r.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {% if request.method == "POST" %}
+                <p>No results found.</p>
+            {% endif %}
+        {% endif %}
+
+        <!-- Add Page Button (always visible) -->
+        <button onclick="document.getElementById('addForm').style.display='block'" class="add-page-btn">Add Page</button>
+
+        <!-- Add Page Form -->
+        <div id="addForm" style="display:none; margin-top:20px;">
+            <form method="POST" action="/add">
+                <!-- Hidden token field -->
+                <input type="hidden" name="token" value="{{ token }}">
+
+                <input type="text" name="title" placeholder="Page Title" required>
+                <input type="text" name="url" placeholder="Page URL" required>
+                <textarea name="content" placeholder="Page Content" required></textarea>
+                <button type="submit">Add Page</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- This code is Copyrighted. Copyright (c) 2025 Ding -->

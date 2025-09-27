@@ -79,6 +79,48 @@ function triggerBell() {
 
 // Click bell normally
 bell.addEventListener('click', triggerBell);
+
+// Galaxy Rhythm Easter Egg
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem("galaxyEasterEgg") === "true") {
+    localStorage.removeItem("galaxyEasterEgg");
+
+    // Add galaxy background
+    const bg = document.createElement('div');
+    bg.classList.add('galaxy-bg');
+    document.body.appendChild(bg);
+
+    // Create some stars
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (1 + Math.random() * 2) + 's';
+      bg.appendChild(star);
+    }
+
+    // Play a short spacey rhythm on the bell
+    const bellInterval = setInterval(() => {
+      bell.classList.add('bell-pulse');
+      sound.currentTime = 0;
+      sound.play();
+      setTimeout(() => bell.classList.remove('bell-pulse'), 300);
+    }, 600); // pulse every 0.6s
+
+    // Stop after 10 beats (~6 seconds)
+    setTimeout(() => clearInterval(bellInterval), 6000);
+  }
+});
+
+// Store flag if user searches "Galaxy"
+const searchForm = document.querySelector('form');
+searchForm.addEventListener('submit', (e) => {
+  const query = e.target.query.value.trim().toLowerCase();
+  if (query === "galaxy") {
+    localStorage.setItem("galaxyEasterEgg", "true");
+  }
+});
 </script>
 </body>
 </html>

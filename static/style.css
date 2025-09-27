@@ -101,4 +101,10 @@ p {
     margin-top: 5px;
 }
 
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /* This code is Copyrighted. Copyright (c) 2025 Ding */

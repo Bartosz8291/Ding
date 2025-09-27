@@ -11,6 +11,13 @@
     <div class="container">
         <h1>Ding <img src="{{ url_for('static', filename='ding.png') }}" alt="Ding Icon" sizes="16x16"></h1>
 
+        <!-- User Info -->
+        {% if session.get('username') %}
+            <p>Hello, {{ session.username }}! <a href="{{ url_for('logout') }}">Logout</a></p>
+        {% else %}
+            <p><a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a></p>
+        {% endif %}
+
         <!-- Search Form -->
         <form method="POST">
             <input type="text" name="query" placeholder="Search Ding..." required>
@@ -31,23 +38,23 @@
             {% endif %}
         {% endif %}
 
-        <!-- Add Page Button (always visible) -->
-        <button onclick="document.getElementById('addForm').style.display='block'" class="add-page-btn">Add Page</button>
+        <!-- Add Page Button (only if logged in) -->
+        {% if session.get('username') %}
+            <button onclick="document.getElementById('addForm').style.display='block'" class="add-page-btn">Add Page</button>
 
-        <!-- Add Page Form -->
-        <div id="addForm" style="display:none; margin-top:20px;">
-            <form method="POST" action="/add">
-                <!-- Hidden token field -->
-                <input type="hidden" name="token" value="{{ token }}">
-
-                <input type="text" name="title" placeholder="Page Title" required>
-                <input type="text" name="url" placeholder="Page URL" required>
-                <textarea name="content" placeholder="Page Content" required></textarea>
-                <button type="submit">Add Page</button>
-            </form>
-        </div>
+            <!-- Add Page Form -->
+            <div id="addForm" style="display:none; margin-top:20px;">
+                <form method="POST" action="/add">
+                    <input type="text" name="title" placeholder="Page Title" required>
+                    <input type="text" name="url" placeholder="Page URL" required>
+                    <textarea name="content" placeholder="Page Content" required></textarea>
+                    <input type="hidden" name="token" value="{{ session.token }}">
+                    <button type="submit">Add Page</button>
+                </form>
+            </div>
+        {% else %}
+            <p>Login to add pages.</p>
+        {% endif %}
     </div>
 </body>
 </html>
-
-<!-- This code is Copyrighted. Copyright (c) 2025 Ding -->

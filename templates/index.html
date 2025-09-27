@@ -66,17 +66,28 @@
         {% endif %}
     </div>
 <script>
-  const bell = document.getElementById('bell');
-  const sound = document.getElementById('ding-sound');
+const bell = document.getElementById('bell');
+const sound = document.getElementById('ding-sound');
 
-  bell.addEventListener('click', () => {
-    sound.currentTime = 0; // restart sound if clicked multiple times
-    sound.play();
-    
-    // Optional: shake animation
-    bell.classList.add('shake');
-    setTimeout(() => bell.classList.remove('shake'), 500);
-  });
+// Function to play the bell
+function triggerBell() {
+  sound.currentTime = 0;
+  sound.play();
+  bell.classList.add('shake');
+  setTimeout(() => bell.classList.remove('shake'), 500);
+}
+
+// Click the bell normally
+bell.addEventListener('click', triggerBell);
+
+// Easter egg: trigger bell when user searches "Ding"
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  const query = e.target.query.value.trim().toLowerCase();
+  if (query === "ding") {
+    triggerBell();
+  }
+});
 </script>
 </body>
 </html>

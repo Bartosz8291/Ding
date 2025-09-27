@@ -107,4 +107,16 @@ p {
     margin-top: 10px;
 }
 
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.bell-icon:hover {
+  animation: shake 0.5s;
+}
+
 /* This code is Copyrighted. Copyright (c) 2025 Ding */
